@@ -1,0 +1,5 @@
+export interface Env {
+  MOCHA_USERS_SERVICE_API_URL: string;
+  MOCHA_USERS_SERVICE_API_KEY: string;
+  // Adicione outras variáveis de ambiente conforme necessário
+}

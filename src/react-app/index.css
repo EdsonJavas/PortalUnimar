@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: "Inter", "Poppins", system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+}
+
+/* Dark mode support */
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500;
+}
+
+/* Custom animations */
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Glassmorphism effect */
+
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-blue-200/50;
+}
+
+.dark .glass {
+  @apply bg-slate-800/80 border-slate-700/50;
+}
+
+/* Gradient text */
+
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+/* Card hover effects */
+
+.card-hover {
+  @apply transform transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply scale-105 shadow-2xl;
+}
+
+/* Button styles */
+
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform;
+}
+
+.btn-primary:hover {
+  @apply scale-105;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 text-gray-700 font-medium rounded-xl border border-gray-300 transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply bg-gray-50;
+}
+
+.dark .btn-secondary {
+  @apply text-gray-300 border-slate-600;
+}
+
+.dark .btn-secondary:hover {
+  @apply bg-slate-700;
+}
