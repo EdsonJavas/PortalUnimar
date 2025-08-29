@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useTheme } from "@/react-app/context/ThemeContext";
-import { auth, loginWithGoogle } from "../../../firebase.ts"; // importe do seu firebase.ts
+import { loginWithGoogle } from "../../../firebase.ts";
 import {
   GraduationCap,
   Brain,
@@ -22,7 +22,6 @@ import {
   Code,
   Camera,
 } from "lucide-react";
-import { onAuthStateChanged } from "firebase/auth";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -40,15 +39,17 @@ export default function Home() {
     };
   }, []);
 
-  // Observa login via Firebase
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+  const handleLogin = async () => {
+    try {
+      const { user } = await loginWithGoogle();
       if (user) {
+        console.log("Usuário logado:", user); // Verifique as informações do usuário
         navigate("/dashboard");
       }
-    });
-    return () => unsubscribe();
-  }, [navigate]);
+    } catch (e) {
+      console.error("Erro ao fazer login:", e);
+    }
+  };
 
   const revolutionaryFeatures = [
     {
@@ -256,7 +257,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <button
-                onClick={loginWithGoogle}
+                onClick={handleLogin}
                 className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 text-lg"
               >
                 <span>Começar Gratuitamente</span>
@@ -460,7 +461,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <button
-                onClick={loginWithGoogle}
+                onClick={handleLogin}
                 className="group inline-flex items-center space-x-3 px-12 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg"
               >
                 <span>Entrar Gratuitamente</span>
