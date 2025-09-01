@@ -2,12 +2,12 @@ import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { cloudflare } from "@cloudflare/vite-plugin";
-import { mochaPlugins } from "@getmocha/vite-plugins";
+// Removida importação do Mocha
 import tailwindcss from "tailwindcss"; // Importando o tailwindcss
 import autoprefixer from "autoprefixer"; // Importando o autoprefixer
 
 export default defineConfig({
-  plugins: [...mochaPlugins(process.env as any), react(), cloudflare()],
+  plugins: [react(), cloudflare()],
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()], // Configurando o PostCSS para usar o Tailwind e Autoprefixer

@@ -1,67 +1,40 @@
 import { Hono } from "hono";
-import {
-  exchangeCodeForSessionToken,
-  getOAuthRedirectUrl,
-  authMiddleware,
-  deleteSession,
-  MOCHA_SESSION_TOKEN_COOKIE_NAME,
-} from "@getmocha/users-service/backend";
 import { getCookie, setCookie } from "hono/cookie";
 import { Env } from "../../worker-configuration"; // Importe a interface Env
 
 const app = new Hono<{ Bindings: Env }>(); // Agora o Hono está tipado corretamente com 'Env'
 
-// Obtain redirect URL from the Mocha Users Service
+// Como estamos usando Firebase diretamente no frontend, estas rotas não são mais necessárias
+// Mantemos a estrutura básica do worker para compatibilidade com o restante da aplicação
+
+// Rota de fallback para compatibilidade
 app.get("/api/oauth/google/redirect_url", async (c) => {
-  const redirectUrl = await getOAuthRedirectUrl("google", {
-    apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-    apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-  });
-
-  return c.json({ redirectUrl }, 200);
+  // Firebase lida com o redirecionamento diretamente no frontend
+  return c.json({ message: "Firebase authentication is used directly in the frontend" }, 200);
 });
 
-// Exchange the code for a session token
+// Rota de fallback para compatibilidade
 app.post("/api/sessions", async (c) => {
-  const body = await c.req.json();
-
-  if (!body.code) {
-    return c.json({ error: "No authorization code provided" }, 400);
-  }
-
-  const sessionToken = await exchangeCodeForSessionToken(body.code, {
-    apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-    apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-  });
-
-  setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, sessionToken, {
-    httpOnly: true,
-    path: "/",
-    sameSite: "none",
-    secure: true,
-    maxAge: 60 * 24 * 60 * 60, // 60 days
-  });
-
-  return c.json({ success: true }, 200);
+  // Firebase lida com as sessões diretamente no frontend
+  return c.json({ message: "Firebase authentication is used directly in the frontend" }, 200);
 });
 
-// Get the current user object for the frontend
-app.get("/api/users/me", authMiddleware, async (c) => {
-  return c.json(c.get("user"));
+// Rota de fallback para compatibilidade
+app.get("/api/users/me", async (c) => {
+  // Firebase lida com as informações do usuário diretamente no frontend
+  return c.json({ message: "Firebase authentication is used directly in the frontend" });
 });
 
-// Call this from the frontend to log out the user
+// Rota de fallback para compatibilidade com logout
 app.get("/api/logout", async (c) => {
-  const sessionToken = getCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME);
-
-  if (typeof sessionToken === "string") {
-    await deleteSession(sessionToken, {
-      apiUrl: c.env.MOCHA_USERS_SERVICE_API_URL,
-      apiKey: c.env.MOCHA_USERS_SERVICE_API_KEY,
-    });
-  }
-
-  setCookie(c, MOCHA_SESSION_TOKEN_COOKIE_NAME, "", {
+  // Firebase lida com o logout diretamente no frontend
+  // Apenas removemos qualquer cookie que possa existir por compatibilidade
+  
+  // Definimos um nome de cookie genérico para substituir o Mocha
+  const SESSION_COOKIE_NAME = "session_token";
+  
+  // Limpa o cookie de sessão
+  setCookie(c, SESSION_COOKIE_NAME, "", {
     httpOnly: true,
     path: "/",
     sameSite: "none",

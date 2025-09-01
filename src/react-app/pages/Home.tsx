@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
-import { useTheme } from "@/react-app/context/ThemeContext";
-import { loginWithGoogle } from "../../../firebase.ts";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+import { loginWithGoogle } from "../../../firebase";
 import {
   GraduationCap,
   Brain,
@@ -43,7 +43,7 @@ export default function Home() {
     try {
       const { user } = await loginWithGoogle();
       if (user) {
-        console.log("Usuário logado:", user); // Verifique as informações do usuário
+        console.log("Usuário logado:", user);
         navigate("/dashboard");
       }
     } catch (e) {
@@ -160,7 +160,7 @@ export default function Home() {
     },
   ];
 
-  const quickActions = [
+  const quickActionsData = [
     {
       icon: Brain,
       label: "IA Assistant",
@@ -181,8 +181,16 @@ export default function Home() {
       label: "Co-working",
       color: "from-amber-500 to-yellow-600",
     },
-    { icon: Code, label: "Desenvolver", color: "from-blue-500 to-cyan-600" },
-    { icon: Camera, label: "Scan Notes", color: "from-red-500 to-pink-600" },
+    {
+      icon: Code,
+      label: "Desenvolver",
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      icon: Camera,
+      label: "Scan Notes",
+      color: "from-red-500 to-pink-600",
+    },
   ];
 
   return (
@@ -205,7 +213,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
             <button
               onClick={toggleTheme}
               className="p-3 rounded-xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg border border-blue-200/50 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -228,7 +235,6 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-400/20 dark:bg-purple-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
           <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-400/20 dark:bg-pink-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-12">
             <div className="space-y-6">
@@ -236,7 +242,6 @@ export default function Home() {
                 <Rocket className="h-4 w-4 mr-2" />
                 Revolucionando a Educação Superior no Brasil
               </div>
-
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight">
                 O Primeiro{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
@@ -254,7 +259,6 @@ export default function Home() {
                 </strong>
               </p>
             </div>
-
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <button
                 onClick={handleLogin}
@@ -263,7 +267,6 @@ export default function Home() {
                 <span>Começar Gratuitamente</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
                   <Star className="h-4 w-4 text-yellow-500" />
@@ -278,7 +281,7 @@ export default function Home() {
 
             {/* Quick Actions Preview */}
             <div className="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-2xl mx-auto">
-              {quickActions.map((action, index) => {
+              {quickActionsData.map((action, index) => {
                 const Icon = action.icon;
                 return (
                   <div key={index} className="group cursor-pointer">
@@ -341,7 +344,6 @@ export default function Home() {
               colabora e constrói sua carreira
             </p>
           </div>
-
           <div className="grid lg:grid-cols-3 gap-8">
             {revolutionaryFeatures.map((feature, index) => {
               const Icon = feature.icon;
@@ -352,22 +354,18 @@ export default function Home() {
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
                   <div className="relative">
                     <div
                       className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} shadow-lg group-hover:shadow-xl transition-all duration-300 mb-6`}
                     >
                       <Icon className="h-8 w-8 text-white" />
                     </div>
-
                     <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                       {feature.title}
                     </h4>
-
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                       {feature.description}
                     </p>
-
                     <div className="space-y-2">
                       {feature.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
@@ -389,7 +387,6 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-indigo-600/5 dark:from-blue-400/5 dark:via-purple-400/5 dark:to-indigo-400/5"></div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h3 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -402,7 +399,6 @@ export default function Home() {
               Resultados reais de quem já usa o Santuário Unimar
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
@@ -444,7 +440,6 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-indigo-600/10 dark:from-blue-400/5 dark:via-purple-400/5 dark:to-indigo-400/5"></div>
-
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-blue-200/50 dark:border-slate-700/50">
             <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
@@ -458,7 +453,6 @@ export default function Home() {
               funcionalidades que vão transformar a Unimar na universidade mais
               inovadora do Brasil.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <button
                 onClick={handleLogin}
@@ -468,7 +462,6 @@ export default function Home() {
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
-
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
               <div className="flex items-center space-x-2">
                 <Globe className="h-4 w-4 text-blue-500" />
@@ -502,15 +495,12 @@ export default function Home() {
             transform: translate(0px, 0px) scale(1);
           }
         }
-        
         .animate-blob {
           animation: blob 7s infinite;
         }
-        
         .animation-delay-2000 {
           animation-delay: 2s;
         }
-        
         .animation-delay-4000 {
           animation-delay: 4s;
         }

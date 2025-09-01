@@ -1,5 +1,6 @@
 export interface Env {
-  MOCHA_USERS_SERVICE_API_URL: string;
-  MOCHA_USERS_SERVICE_API_KEY: string;
+  // Variáveis de ambiente do Firebase (se necessário)
+  // FIREBASE_API_KEY: string;
+  // FIREBASE_AUTH_DOMAIN: string;
   // Adicione outras variáveis de ambiente conforme necessário
 }

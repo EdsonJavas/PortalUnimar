@@ -1,7 +1,7 @@
 import React from "react";
-import { useAuth } from "@getmocha/users-service/react";
+import { useAuth } from "../context/AuthContext";
 import { useTheme } from "@/react-app/context/ThemeContext";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 import {
   Home,
   User,
@@ -100,14 +100,14 @@ export default function Layout({ children }: LayoutProps) {
                   <div className="hidden md:flex items-center space-x-3">
                     <img
                       src={
-                        user.google_user_data.picture ||
+                        user?.photoURL ||
                         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
                       }
-                      alt={user.google_user_data.name || "Avatar"}
+                      alt={user?.displayName || "Avatar"}
                       className="h-8 w-8 rounded-full border-2 border-blue-200 dark:border-slate-600"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {user.google_user_data.given_name || "Usuário"}
+                      {user?.displayName?.split(" ")[0] || "Usuário"}
                     </span>
                     <button
                       onClick={logout}
@@ -162,14 +162,14 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-center space-x-3 px-3 py-2">
                   <img
                     src={
-                      user.google_user_data.picture ||
+                      user?.photoURL ||
                       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
                     }
-                    alt={user.google_user_data.name || "Avatar"}
+                    alt={user?.displayName || "Avatar"}
                     className="h-8 w-8 rounded-full border-2 border-blue-200 dark:border-slate-600"
                   />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {user.google_user_data.name || "Usuário"}
+                    {user?.displayName || "Usuário"}
                   </span>
                 </div>
                 <button

@@ -1,4 +1,3 @@
-// firebase.ts
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -10,12 +9,12 @@ import {
   UserCredential,
 } from "firebase/auth";
 
-// 🔐 Configuração do Firebase (pode deixar isso como está)
+// 🔐 Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBRzVhv32q3_7CLhKn8moJhJ3wO3bCjMvA",
   authDomain: "santuariounimar.firebaseapp.com",
   projectId: "santuariounimar",
-  storageBucket: "santuariounimar.appspot.com", // Corrigido .app para .com
+  storageBucket: "santuariounimar.appspot.com",
   messagingSenderId: "166893561842",
   appId: "1:166893561842:web:8689ba61a9f561d5b6ed6b",
   measurementId: "G-RKFNFFWGT9",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "@getmocha/users-service/react";
+import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import Layout from "@/react-app/components/Layout";
 import {
@@ -436,10 +436,10 @@ export default function Profile() {
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                     <img
                       src={
-                        user.google_user_data.picture ||
+                        user?.photoURL ||
                         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
                       }
-                      alt={user.google_user_data.name || "Avatar"}
+                      alt={user?.displayName || "Avatar"}
                       className="relative w-40 h-40 rounded-full border-4 border-white dark:border-slate-800 shadow-2xl"
                     />
                     <button className="absolute bottom-2 right-2 p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100">
@@ -454,7 +454,7 @@ export default function Profile() {
 
                   <div className="text-center space-y-2">
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      {user.google_user_data.name || "Usuário"}
+                      {user?.displayName || "Usuário"}
                     </h1>
                     <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
                       {formData.course}
@@ -543,7 +543,7 @@ export default function Profile() {
                       </label>
                       <input
                         type="email"
-                        value={user.email}
+                        value={user?.email || ""}
                         disabled
                         className="w-full px-4 py-3 bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl text-gray-900 dark:text-white opacity-60"
                       />
