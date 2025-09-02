@@ -23,6 +23,7 @@ worker-configuration.d.ts
 .env.development.local
 .env.test.local
 .env.production.local
+.env.example
 
 # IDE and editor files
 .vscode/
@@ -123,5 +124,19 @@ worker-configuration.d.ts
 # Vite
 .vite/
 
+# History and editor files
 .history
 .vscode
+
+# Security and sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+config.json
+credentials.json
+
+# Local development files
+.local
+local.*

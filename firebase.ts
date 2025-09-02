@@ -9,14 +9,14 @@ import {
   UserCredential,
 } from "firebase/auth";
 
-// 🔐 Configuração do Firebase
+// 🔐 Configuração do Firebase - Configuração fixa
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBRzVhv32q3_7CLhKn8moJhJ3wO3bCjMvA",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "santuariounimar.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "santuariounimar",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "santuariounimar.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "166893561842",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:166893561842:web:8689ba61a9f561d5b6ed6b",
+  apiKey: "AIzaSyBRzVhv32q3_7CLhKn8moJhJ3wO3bCjMvA",
+  authDomain: "santuariounimar.firebaseapp.com",
+  projectId: "santuariounimar",
+  storageBucket: "santuariounimar.appspot.com",
+  messagingSenderId: "166893561842",
+  appId: "1:166893561842:web:8689ba61a9f561d5b6ed6b",
   measurementId: "G-RKFNFFWGT9",
 };
 
