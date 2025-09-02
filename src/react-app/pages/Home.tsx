@@ -206,7 +206,7 @@ export default function Home() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Santuário Unimar
+                  Portal Unimar
                 </h1>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   O Futuro da Educação
@@ -396,7 +396,7 @@ export default function Home() {
               </span>
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Resultados reais de quem já usa o Santuário Unimar
+              Resultados reais de quem já usa o Portal Unimar
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -449,7 +449,7 @@ export default function Home() {
               </span>
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Entre agora no Santuário Unimar e tenha acesso antecipado às
+              Entre agora no Portal Unimar e tenha acesso antecipado às
               funcionalidades que vão transformar a Unimar na universidade mais
               inovadora do Brasil.
             </p>

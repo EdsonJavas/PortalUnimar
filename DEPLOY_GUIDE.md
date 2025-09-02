@@ -1,4 +1,4 @@
-# 🚀 Guia de Deploy na Vercel - Santuário Unimar
+# 🚀 Guia de Deploy na Vercel - Portal Unimar
 
 ## ✅ Status: Pronto para Deploy
 

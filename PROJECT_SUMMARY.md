@@ -1,4 +1,4 @@
-# 🎉 Projeto Santuário Unimar - Pronto para Deploy!
+# 🎉 Projeto Portal Unimar - Pronto para Deploy!
 
 ## ✅ Status: COMPLETAMENTE PRONTO
 
