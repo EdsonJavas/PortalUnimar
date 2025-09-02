@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "@/react-app/context/AuthContext";
 import { ThemeProvider } from "@/react-app/context/ThemeContext";
 import HomePage from "@/react-app/pages/Home";
 import AuthCallbackPage from "@/react-app/pages/AuthCallback";
-import { Dashboard } from "./../react-app/pages/Dashboard";
+import { Dashboard } from "@/react-app/pages/Dashboard";
 import ProfilePage from "@/react-app/pages/Profile";
 import GradesPage from "@/react-app/pages/Grades";
 import AttendancePage from "@/react-app/pages/Attendance";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import Layout from "@/react-app/components/Layout";
@@ -64,7 +64,7 @@ export default function Profile() {
     portfolio: "estudante.dev",
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isPending && !user) {
       navigate("/");
     }

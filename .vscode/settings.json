@@ -7,5 +7,6 @@
     "css": "css",
     "postcss": "css",
     "scss": "css"
-  }
+  },
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}${separator}[Branch: main]"
 }

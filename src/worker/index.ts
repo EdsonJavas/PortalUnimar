@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { getCookie, setCookie } from "hono/cookie";
-import { Env } from "../../worker-configuration"; // Importe a interface Env
+import { setCookie } from "hono/cookie";
+import { Env } from "../../worker-configuration";
 
 const app = new Hono<{ Bindings: Env }>(); // Agora o Hono está tipado corretamente com 'Env'
 
