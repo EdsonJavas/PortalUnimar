@@ -4,6 +4,11 @@
 
 O projeto está completamente configurado para deploy na Vercel. Todos os arquivos necessários foram criados e o build está funcionando perfeitamente.
 
+## 🔧 Problema Resolvido
+
+**Erro anterior**: `Cannot find module @rollup/rollup-linux-x64-gnu`
+**Solução**: Downgrade do Vite para versão 5.4.12 e fix do Rollup para 4.21.1
+
 ## 📁 Arquivos Criados para Vercel
 
 - ✅ `vercel.json` - Configuração do projeto
@@ -11,6 +16,7 @@ O projeto está completamente configurado para deploy na Vercel. Todos os arquiv
 - ✅ `.vercelignore` - Arquivos a serem ignorados
 - ✅ `README.md` - Documentação completa
 - ✅ Build testado e funcionando
+- ✅ Dependências otimizadas para Vercel
 
 ## 🎯 Próximos Passos para Deploy
 
@@ -53,8 +59,9 @@ O arquivo `vercel.json` já está configurado com:
 
 ## 📊 Performance Esperada
 
-- **Build Time**: ~18 segundos
-- **Bundle Size**: ~925KB (246KB gzipped)
+- **Build Time**: ~15 segundos
+- **Bundle Size**: ~918KB (244KB gzipped)
+- **CSS Size**: ~54KB (8KB gzipped)
 - **First Contentful Paint**: < 2s
 - **Lighthouse Score**: 90+ em todas as métricas
 

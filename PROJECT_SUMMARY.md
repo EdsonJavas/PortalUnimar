@@ -15,7 +15,8 @@ Seu projeto está **100% configurado** para deploy na Vercel! Todos os arquivos 
 - ✅ Build testado e funcionando
 
 ### 🛠️ Otimizações Implementadas:
-- ✅ Vite configurado para produção
+- ✅ Vite configurado para produção (versão 5.4.12)
+- ✅ Rollup fixado na versão 4.21.1 (resolve erro Vercel)
 - ✅ Firebase com variáveis de ambiente
 - ✅ TypeScript sem erros de build
 - ✅ CSS otimizado e comprimido
@@ -23,9 +24,9 @@ Seu projeto está **100% configurado** para deploy na Vercel! Todos os arquivos 
 - ✅ SPA routing configurado
 
 ### 📊 Métricas do Build:
-- **Tempo de Build**: 17.91s
-- **Bundle Size**: 924.78KB (246.87KB gzipped)
-- **CSS Size**: 54.76KB (8.12KB gzipped)
+- **Tempo de Build**: 15.17s
+- **Bundle Size**: 918KB (244KB gzipped)
+- **CSS Size**: 54KB (8KB gzipped)
 - **Status**: ✅ Sucesso
 
 ## 🚀 Próximos Passos:
