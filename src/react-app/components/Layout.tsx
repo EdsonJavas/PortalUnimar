@@ -12,9 +12,9 @@ import {
   LogOut,
   Menu,
   X,
-  GraduationCap,
 } from "lucide-react";
 import { useState } from "react";
+import { GraduationCap } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -45,14 +45,18 @@ export default function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <Link
               to={user ? "/dashboard" : "/"}
-              className="flex items-center space-x-3 group"
+              className="group"
             >
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300">
-                <GraduationCap className="h-6 w-6 text-white" />
+              <div className="flex items-center space-x-3">
+                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl shadow-lg">
+                  <GraduationCap className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                                     <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent brand-text">
+                     Portal Unimar
+                   </h1>
+                </div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Portal Unimar
-              </span>
             </Link>
 
             {/* Desktop Navigation */}

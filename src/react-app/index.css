@@ -11,7 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hierarquia de fontes: Poppins para títulos, Outfit para corpo (estiloso e descolado!) */
+/* Hierarquia de fontes: Poppins para títulos, Outfit para corpo (estiloso e descolado!), Space Grotesk para marca street */
 body {
   font-family: "Outfit", system-ui, sans-serif;
   font-weight: 400;
@@ -85,6 +85,14 @@ p, .body-text, .text-body {
   line-height: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.025em;
+}
+
+/* MARCA COM ORBITRON - FONTE ESPECIAL PARA IDENTIDADE VISUAL */
+.brand-text, .text-brand, .logo-text {
+  font-family: "Orbitron", monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .small-text, .text-small {
